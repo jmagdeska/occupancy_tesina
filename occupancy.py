@@ -29,13 +29,9 @@ from sklearn.metrics import f1_score, roc_auc_score, roc_curve, confusion_matrix
 
 """**Data preparation**"""
 
-# Clone github repository with data
-if not os.path.isdir('./ds_tesina'):
-  !git clone https://jmagdeska:xxx@github.com/jmagdeska/ds_tesina
-
-data_train = pd.read_csv('./ds_tesina/occupancy_data/datatraining.txt', header=0, index_col=1, parse_dates=True, sep=",")
-data_valid = pd.read_csv('./ds_tesina/occupancy_data/datatest.txt', header=0, index_col=1, parse_dates=True, sep=",")
-data_test = pd.read_csv('./ds_tesina/occupancy_data/datatest2.txt', header=0, index_col=1, parse_dates=True, sep=",")
+data_train = pd.read_csv('./data/datatraining.txt', header=0, index_col=1, parse_dates=True, sep=",")
+data_valid = pd.read_csv('./data/datatest.txt', header=0, index_col=1, parse_dates=True, sep=",")
+data_test = pd.read_csv('./data/datatest2.txt', header=0, index_col=1, parse_dates=True, sep=",")
 
 data = pd.concat([data_valid, data_train, data_test])
 # print(data.head)
